@@ -8,12 +8,15 @@ import MyPolls from "./pages/Dashboard/MyPolls"
 import VotedPolls from "./pages/Dashboard/VotedPolls"
 import Bookmarks from "./pages/Dashboard/Bookmarks"
 import { useState } from "react"
+import UserProvider from "./context/UserContext"
+import {Toaster} from "react-hot-toast"
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
   <div>
+  <UserProvider>
     <Router>
       <Routes>
         <Route path="/" element={<Root/>}/>
@@ -26,6 +29,15 @@ function App() {
         <Route path="/bookmarked-polls" exact element={<Bookmarks/>}/>
       </Routes>
     </Router>
+    <Toaster
+      toastOptions={{
+        className:"",
+        style:{
+          fontSize:"13px"
+        },
+      }}
+      />
+  </UserProvider>
   </div>
   )
 }

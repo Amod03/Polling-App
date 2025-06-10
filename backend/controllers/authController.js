@@ -1,9 +1,10 @@
+const Poll = require('../models/Poll');
 const User = require('../models/User')
 const jwt=require("jsonwebtoken");
 
 //generate JWT token
 const generateToken=(id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:"1h"});
+    return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:"20h"});
 }
 
 //register user
@@ -65,13 +66,18 @@ exports.loginUser=async(req,res)=>{
         return res.status(400).json({message:"Invalid Credentials"})
       }
 
+      const totalPollsCreated=await Poll.countDocuments({creator:user._id});
+
+      const totalPollsVotes=await Poll.countDocuments({voters:user._id});
+
+      const totalPollsBookmarked=user.bookmarkedPolls.length;
       res.status(200).json({
         id:user._id,
         user:{
             ...user.toObject(),
-            totalPollsCreated:0,
-            totalPollsVotes:0,
-            totalPollsBookmarked:0,
+            totalPollsCreated,
+            totalPollsVotes,
+            totalPollsBookmarked,
         },
         token:generateToken(user._id)
       });
@@ -84,11 +90,26 @@ exports.loginUser=async(req,res)=>{
 //registering user
 exports.getUserInfo=async(req,res)=>{
     try{
+        // console.log(req.user,"req"); //can access user from req also as in protect middleware we have stored the refernce of current user in req.user
         const user=await User.findById(req.user.id).select("-password");
+        // console.log(user,"new") //Identical to the req.user
         if(!user){
             return res.status(404).json({message:"User not Found"})
         }
-        res.status(200).json(user)
+
+        const totalPollsCreated=await Poll.countDocuments({creator:user._id});
+
+        const totalPollsVotes=await Poll.countDocuments({voters:user._id});
+  
+        const totalPollsBookmarked=user.bookmarkedPolls.length;
+
+        const userInfo={
+            ...user.toObject(),
+            totalPollsCreated,
+            totalPollsVotes,
+            totalPollsBookmarked,
+        }
+        res.status(200).json(userInfo)
     }catch(err){
         res.status(500).json({message:"Error fetching User",error:err.message})
     }
