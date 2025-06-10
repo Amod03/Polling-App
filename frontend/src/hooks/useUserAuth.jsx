@@ -9,7 +9,7 @@ export const useUserAuth=()=>{
     const navigate=useNavigate();
 
     useEffect(()=>{
-        if(user)return;
+        if(user) return;
 
         let isMounted=true;
 
