@@ -8,7 +8,7 @@ import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPaths';
 import PollCard from '../../components/PollCards/PollCard';
 import InfiniteScroll from "react-infinite-scroll-component";
-import CREATE_ICON from "../../assets/Images/react.svg"
+import CREATE_ICON from "../../assets/pa-4.jpg"
 import EmptyCard from '../../components/cards/EmptyCard';
 
 const PAGE_SIZE=10;

@@ -22,7 +22,7 @@ const CreatePoll = () => {
   })
 
   const handleValueChange=(key,value)=>{
-    console.log(key,value,"valll")
+    // console.log(key,value,"valll")
     setPollData((prev)=>({
       ...prev,
       [key]:value,
@@ -71,7 +71,7 @@ const CreatePoll = () => {
   const handleCreatePoll=async()=>{
     const {question,type,options,imageOptions,error}=pollData;
     if(!question || !type){
-      console.log("CREATE",{question,type,options,error});
+      // console.log("CREATE",{question,type,options,error});
       handleValueChange("error","Question & type are required");
       return;
     }

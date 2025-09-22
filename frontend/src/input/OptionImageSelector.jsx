@@ -5,7 +5,7 @@ const OptionImageSelector = ({imageList,setImageList}) => {
     //Funciton to handle adding an image
     const handleAddImage=(event)=>{
       const file=event.target.files[0];
-      console.log(file,"file")
+      // console.log(file,"file")
       if(file && imageList.length < 4){
         const reader=new FileReader(); //FileReader is a built-in JavaScript object that allows reading the contents of files.
         reader.onload=()=>{  //This code is executed once the file has been fully read.
@@ -19,9 +19,9 @@ const OptionImageSelector = ({imageList,setImageList}) => {
         event.target.value=null;
       }
     }
-    useEffect(() => {
-        console.log("Updated imageList:", imageList);
-      }, [imageList]);
+    // useEffect(() => {
+    //     console.log("Updated imageList:", imageList);
+    //   }, [imageList]);
       
 
     //function to handle deleting an image

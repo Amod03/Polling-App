@@ -2,7 +2,7 @@ import React from 'react'
 import {MdRadioButtonChecked,MdRadioButtonUnchecked} from 'react-icons/md'
 
 const OptionInputTile = ({isSelected,label,onSelect}) => {
-  console.log(isSelected,"isisisi")
+  // console.log(isSelected,"isisisi")
     const getColors=()=>{
         if(isSelected) return "text-white bg-primary border-sky-400";
 

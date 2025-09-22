@@ -4,7 +4,7 @@ export const UserContext=createContext();
 
 const UserProvider = ({children})=>{
     const [user,setUser]=useState(null);
-    console.log(user)
+    // console.log(user)
     const updateUser=(userData)=>{
         setUser(userData);
     };
@@ -41,7 +41,7 @@ const UserProvider = ({children})=>{
     const toggleBookmarkId=(id)=>{
         const bookmarks=user.bookmarkedPolls || [];
         const index=bookmarks.indexOf(id);
-        console.log(index,"index")
+        // console.log(index,"index")
         if(index === -1){
             //Add the id if its not in the array
             setUser((prev)=>({

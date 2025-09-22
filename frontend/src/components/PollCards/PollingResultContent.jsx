@@ -28,7 +28,7 @@ const ImagePollResult=({imgUrl,optionVotes,totalVotes})=>{
 }
 
 const OpenEndedPollResponse=({profileImgUrl,userFullName,response,createdAt})=>{
-    console.log(profileImgUrl)
+    // console.log(profileImgUrl)
  return (
     <div className='mb-8 ml-3'>
         <div className='flex gap-3'>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPaths';
 import PollCard from '../../components/PollCards/PollCard';
-import CREATE_ICON from "../../assets/Images/react.svg"
+import CREATE_ICON from "../../assets/pa-4.jpg"
 import EmptyCard from '../../components/cards/EmptyCard';
 import { UserContext } from '../../context/UserContext';
 
@@ -27,7 +27,7 @@ const Bookmarks = () => {
       const response=await axiosInstance.get(API_PATHS.POLLS.GET_BOOKMARKED);
       if(response.data?.bookmarkedPolls?.length > 0){
         setBookmarkedPolls((prevPolls)=>[...prevPolls,...response.data.bookmarkedPolls]);
-        console.log(response.data.bookmarkedPolls)
+        // console.log(response.data.bookmarkedPolls)
       }
 
     }catch(error){

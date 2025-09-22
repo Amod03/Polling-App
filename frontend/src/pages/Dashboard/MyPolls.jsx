@@ -10,7 +10,7 @@ import PollCard from '../../components/PollCards/PollCard';
 import InfiniteScroll from "react-infinite-scroll-component";
 import { UserContext } from '../../context/UserContext';
 import EmptyCard from '../../components/cards/EmptyCard';
-import CREATE_ICON from "../../assets/Images/react.svg"
+import CREATE_ICON from "../../assets/pa-4.jpg"
 
 const PAGE_SIZE=10;
 

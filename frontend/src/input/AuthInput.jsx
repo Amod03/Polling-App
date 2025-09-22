@@ -15,7 +15,7 @@ const AuthInput = ({value,onChange,label,placeholder,type}) => {
         <input 
            type={type=="password" ? showPassword ? 'text' : 'password' : type}
            placeholder= {placeholder}
-           className='"w-full bg-transparent outline-none'
+           className='w-full bg-transparent outline-none'
            value={value}
            onChange={(e)=>onChange(e)}
            />

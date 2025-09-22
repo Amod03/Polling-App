@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980">
+  <defs>
+    <style>
+      .title { font: 700 30px sans-serif; }
+      .box-title { font: 600 18px sans-serif; }
+      .text { font: 14px sans-serif; }
+      .note { font: 13px sans-serif; }
+      .box { fill: #ffffff; stroke: #000000; stroke-width: 2; rx: 12; ry: 12; }
+      .note-box { fill: #ffffff; stroke: #000000; stroke-dasharray: 6 4; rx: 10; ry: 10; }
+      .arrow { stroke: #000000; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 Z" fill="#000000" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="50" text-anchor="middle" class="title">Ship a Feature as an NPM Package — Flow</text>
+
+  <!-- 1. Extract &amp; API -->
+  <rect x="80" y="110" width="360" height="140" class="box" />
+  <text x="260" y="145" text-anchor="middle" class="box-title">1) Extract &amp; Define API</text>
+  <text x="100" y="175" class="text">• Isolate reusable code</text>
+  <text x="100" y="197" class="text">• Expose from src/index.ts</text>
+
+  <!-- 2. Init package -->
+  <rect x="520" y="110" width="360" height="140" class="box" />
+  <text x="700" y="145" text-anchor="middle" class="box-title">2) Init Package</text>
+  <text x="540" y="175" class="text">• npm init -y</text>
+  <text x="540" y="197" class="text">• npm i -D typescript tsup</text>
+
+  <!-- 3. Build &amp; exports -->
+  <rect x="960" y="110" width="360" height="180" class="box" />
+  <text x="1140" y="145" text-anchor="middle" class="box-title">3) Build &amp; Exports</text>
+  <text x="980" y="175" class="text">• package.json: main/module/types/exports</text>
+  <text x="980" y="197" class="text">• files: ["dist"], prepublishOnly: build</text>
+  <text x="980" y="219" class="text">• peerDependencies (React/Three/etc.)</text>
+
+  <!-- 4. Build -->
+  <rect x="80" y="330" width="360" height="120" class="box" />
+  <text x="260" y="365" text-anchor="middle" class="box-title">4) Build</text>
+  <text x="100" y="395" class="text">• npm run build → dist (ESM + CJS + .d.ts)</text>
+
+  <!-- 5. Test locally -->
+  <rect x="520" y="330" width="360" height="160" class="box" />
+  <text x="700" y="365" text-anchor="middle" class="box-title">5) Test Locally</text>
+  <text x="540" y="395" class="text">• npm pack → install .tgz in sample app</text>
+  <text x="540" y="417" class="text">• or yalc for faster iteration</text>
+
+  <!-- 6. Publish -->
+  <rect x="960" y="330" width="360" height="160" class="box" />
+  <text x="1140" y="365" text-anchor="middle" class="box-title">6) Publish</text>
+  <text x="980" y="395" class="text">• Public: npm publish --access public</text>
+  <text x="980" y="417" class="text">• Private: org registry / GitHub Packages</text>
+
+  <!-- 7. Consume -->
+  <rect x="80" y="540" width="360" height="140" class="box" />
+  <text x="260" y="575" text-anchor="middle" class="box-title">7) Consume</text>
+  <text x="100" y="605" class="text">• npm i @your-scope/kit</text>
+  <text x="100" y="627" class="text">• import {{ namedExport }} from "@your-scope/kit"</text>
+
+  <!-- Tips / Gotchas -->
+  <rect x="520" y="540" width="360" height="180" class="note-box" />
+  <text x="700" y="573" text-anchor="middle" class="box-title">Tips / Gotchas</text>
+  <text x="540" y="603" class="note">• Ship only dist via "files": ["dist"]</text>
+  <text x="540" y="625" class="note">• Keep peer deps external</text>
+  <text x="540" y="647" class="note">• Semver + CHANGELOG</text>
+
+  <!-- What is tsup -->
+  <rect x="960" y="540" width="360" height="200" class="note-box" />
+  <text x="1140" y="573" text-anchor="middle" class="box-title">What is tsup?</text>
+  <text x="980" y="603" class="note">• Fast TS/JS bundler (esbuild)</text>
+  <text x="980" y="625" class="note">• Outputs ESM &amp; CJS</text>
+  <text x="980" y="647" class="note">• --dts emits .d.ts types</text>
+  <text x="980" y="669" class="note">• Minimal config, great for libs</text>
+
+  <!-- Arrows row 1 -->
+  <path class="arrow" d="M 440 180 L 520 180"/>
+  <path class="arrow" d="M 880 180 L 960 180"/>
+  <!-- From step 3 down to 4 -->
+  <path class="arrow" d="M 1140 290 L 1140 330"/>
+  <!-- Row 2 arrows -->
+  <path class="arrow" d="M 440 390 L 520 390"/>
+  <path class="arrow" d="M 880 410 L 960 410"/>
+  <!-- From 6 to 7 (wrap arrow) -->
+  <path class="arrow" d="M 1140 490 L 1140 520 L 260 520 L 260 540"/>
+</svg>
